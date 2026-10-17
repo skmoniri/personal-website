@@ -1,0 +1,1253 @@
+/* ==========================================
+   PROJECT PAGE
+   ========================================== */
+
+.projectPage {
+  --project-red: #d71920;
+  --project-border: #34383b;
+  --project-muted: #929497;
+  --project-white: #e8e8e5;
+
+  width: 100%;
+  min-height: 100vh;
+  background: #08090a;
+  color: var(--project-white);
+}
+
+/* ==========================================
+   SHARED TYPOGRAPHY
+   ========================================== */
+
+.topBar,
+.sectionHeader,
+.panelTop,
+.panelBottom,
+.heroFooter {
+  font-family: var(--font-eurostile), monospace;
+  letter-spacing: 0.08em;
+}
+
+/* ==========================================
+   TOP NAVIGATION
+   ========================================== */
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  min-height: 88px;
+  padding: 20px clamp(20px, 4vw, 70px);
+
+  border-bottom: 1px solid var(--project-border);
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  min-height: 44px;
+
+  color: var(--project-white);
+  font-size: 12px;
+  text-decoration: none;
+
+  transition: color 200ms ease;
+}
+
+.backLink:hover {
+  color: var(--project-red);
+}
+
+.topBarRight {
+  color: var(--project-muted);
+  font-size: 11px;
+}
+
+/* ==========================================
+   SECTION HEADER
+   ========================================== */
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  padding: 22px clamp(20px, 4vw, 70px);
+
+  color: var(--project-muted);
+  font-size: 11px;
+
+  border-bottom: 1px solid var(--project-border);
+}
+
+.sectionIndex {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: var(--project-white);
+}
+
+.redSquare {
+  display: block;
+
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  background: var(--project-red);
+}
+
+/* ==========================================
+   MAIN HERO GRID
+   ========================================== */
+
+.heroGrid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  min-height: min(74vh, 790px);
+
+  border-bottom: 1px solid var(--project-border);
+}
+
+.identityPanel,
+.asciiPanel {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.identityPanel {
+  border-right: 1px solid var(--project-border);
+}
+
+/* ==========================================
+   PANEL LABELS
+   ========================================== */
+
+.panelTop,
+.panelBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+
+  padding: 18px clamp(18px, 2vw, 32px);
+
+  color: var(--project-muted);
+  font-size: 10px;
+}
+
+.panelTop {
+  border-bottom: 1px solid var(--project-border);
+}
+
+.panelBottom {
+  border-top: 1px solid var(--project-border);
+}
+
+/* ==========================================
+   IDENTITY CONTENT
+   ========================================== */
+
+.identityContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  gap: clamp(50px, 6vw, 100px);
+
+  min-width: 0;
+
+  padding: clamp(40px, 5vw, 85px);
+}
+
+/* ==========================================
+   ALI HATEF IDENTITY
+   ========================================== */
+
+.aliIdentity {
+  width: 100%;
+  min-width: 0;
+}
+
+.aliLogo {
+  position: relative;
+
+  display: inline-block;
+
+  max-width: 100%;
+
+  overflow: hidden;
+}
+
+.aliOffset,
+.aliTitle {
+  display: block;
+
+  margin: 0;
+
+  font-family: var(--font-lahzeh), Arial, sans-serif;
+  font-size: clamp(4.2rem, 8.4vw, 10rem);
+  font-weight: 900;
+
+  line-height: 0.72;
+  letter-spacing: -0.09em;
+
+  white-space: nowrap;
+}
+
+.aliOffset {
+  position: absolute;
+  inset: 0;
+
+  transform: translate(7px, 3px);
+
+  color: rgba(215, 25, 32, 0.75);
+
+  pointer-events: none;
+}
+
+.aliTitle {
+  position: relative;
+  z-index: 1;
+
+  color: #ffffff;
+}
+
+.aliGlare {
+  position: absolute;
+  z-index: 2;
+
+  inset-block: 0;
+  left: -45%;
+
+  width: 25%;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+
+  transform: skewX(-12deg);
+
+  animation: aliScreenGlare 6s ease-in-out infinite;
+}
+
+@keyframes aliScreenGlare {
+  0%,
+  70% {
+    left: -45%;
+  }
+
+  100% {
+    left: 145%;
+  }
+}
+
+.aliSubtitle {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  margin-top: 32px;
+
+  color: #777777;
+
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+}
+
+/* ==========================================
+   TIVASA IDENTITY
+   ========================================== */
+
+.tivasaIdentity {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  max-width: 100%;
+}
+
+.tivasaWordmark {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: clamp(12px, 2vw, 26px);
+
+  max-width: 100%;
+
+  overflow: hidden;
+
+  padding-bottom: 12px;
+}
+
+.tivasaTitle {
+  margin: 0;
+  font-family: var(--font-clash-grotesk), Arial, sans-serif;
+  font-size: clamp(3.5rem, 8vw, 9rem);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.tivasaDot {
+  display: block;
+
+  width: clamp(7px, 0.7vw, 11px);
+  height: clamp(7px, 0.7vw, 11px);
+
+  flex-shrink: 0;
+
+  background: var(--project-red);
+}
+
+/* TIVASA — PERMANENT RED UNDERLINE */
+
+.tivasaUnderline {
+  display: block;
+  width: 70%;
+  height: 2px;
+  flex-shrink: 0;
+
+  background: var(--project-red);
+
+  transition: none;
+}
+@keyframes tivasaScan {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+/* ==========================================
+   PROJECT DESCRIPTION
+   ========================================== */
+
+.projectInformation {
+  width: 100%;
+  max-width: 440px;
+}
+
+.projectCategory {
+  display: block;
+
+  font-family: var(--font-eurostile), monospace;
+
+  font-size: 11px;
+  letter-spacing: 0.12em;
+
+  color: var(--project-red);
+}
+
+.informationRule {
+  width: 100%;
+  height: 1px;
+
+  margin: 22px 0;
+
+  background: var(--project-border);
+}
+
+.projectDescription {
+  max-width: 420px;
+
+  margin: 0;
+
+  color: #b5b6b4;
+
+  font-size: clamp(15px, 1.3vw, 19px);
+  line-height: 1.65;
+}
+
+/* ==========================================
+   ASCII ART PANEL
+   ========================================== */
+
+.liveIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.liveDot {
+  display: block;
+
+  width: 6px;
+  height: 6px;
+
+  flex-shrink: 0;
+
+  background: var(--project-red);
+
+  box-shadow: 0 0 10px rgba(215, 25, 32, 0.5);
+}
+
+.asciiStage {
+  position: relative;
+
+  flex: 1;
+
+  min-height: 420px;
+
+  overflow: hidden;
+
+  background: #030404;
+}
+
+.asciiFrame {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+
+  border: 0;
+
+  background: #030404;
+}
+
+/* ==========================================
+   ASCII CORNER MARKERS
+   ========================================== */
+
+.corner {
+  position: absolute;
+  z-index: 2;
+
+  width: 16px;
+  height: 16px;
+
+  border-color: var(--project-red);
+  border-style: solid;
+
+  pointer-events: none;
+}
+
+.cornerTL {
+  top: 18px;
+  left: 18px;
+
+  border-width: 1px 0 0 1px;
+}
+
+.cornerTR {
+  top: 18px;
+  right: 18px;
+
+  border-width: 1px 1px 0 0;
+}
+
+.cornerBL {
+  bottom: 18px;
+  left: 18px;
+
+  border-width: 0 0 1px 1px;
+}
+
+.cornerBR {
+  bottom: 18px;
+  right: 18px;
+
+  border-width: 0 1px 1px 0;
+}
+
+/* ==========================================
+   HERO FOOTER
+   ========================================== */
+
+.heroFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 24px clamp(20px, 4vw, 70px);
+
+  color: var(--project-muted);
+  font-size: 11px;
+
+  border-bottom: 1px solid var(--project-border);
+}
+
+.exploreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  min-height: 44px;
+
+  color: var(--project-white);
+
+  text-decoration: none;
+
+  transition: color 200ms ease;
+}
+
+.exploreLink:hover {
+  color: var(--project-red);
+}
+
+/* ==========================================
+   PROJECT DETAILS PLACEHOLDER
+   ========================================== */
+
+.detailsPlaceholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 16px;
+
+  min-height: 250px;
+
+  padding: 60px clamp(20px, 4vw, 70px);
+
+  font-family: var(--font-eurostile), monospace;
+
+  font-size: 11px;
+  letter-spacing: 0.1em;
+
+  color: var(--project-muted);
+}
+
+.detailsPlaceholder span:last-child {
+  color: var(--project-red);
+}
+
+/* ==========================================
+   TABLET
+   ========================================== */
+
+@media (max-width: 1100px) {
+  .identityContent {
+    padding: 45px 30px;
+  }
+
+  .aliOffset,
+  .aliTitle {
+    font-size: clamp(3.5rem, 8vw, 7rem);
+  }
+
+  .tivasaTitle {
+    font-size: clamp(3rem, 7vw, 6rem);
+  }
+}
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 767px) {
+  .topBar {
+    min-height: 70px;
+  }
+
+  .topBarRight {
+    display: none;
+  }
+
+  .heroGrid {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .identityPanel {
+    border-right: 0;
+    border-bottom: 1px solid var(--project-border);
+  }
+
+  .identityContent {
+    min-height: 440px;
+
+    padding: 65px 25px;
+
+    gap: 65px;
+  }
+
+  .aliOffset,
+  .aliTitle {
+    font-size: clamp(4rem, 15vw, 8rem);
+  }
+
+  .tivasaTitle {
+    font-size: clamp(3.5rem, 13vw, 7rem);
+  }
+
+  .asciiStage,
+  .asciiFrame {
+    min-height: 420px;
+  }
+
+  .panelTop,
+  .panelBottom {
+    font-size: 9px;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+   ========================================== */
+
+@media (max-width: 390px) {
+  .aliOffset,
+  .aliTitle {
+    font-size: 14vw;
+  }
+
+  .tivasaTitle {
+    font-size: 12vw;
+  }
+
+  .sectionHeader,
+  .heroFooter {
+    font-size: 9px;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .aliGlare,
+  .tivasaScanner {
+    animation: none !important;
+  }
+
+  .tivasaUnderline {
+    transition: none;
+  }
+}
+
+/* Remove the vertical divider between identity and ASCII */
+.heroGrid > .identityPanel,
+.heroGrid > .asciiPanel {
+  border-left: none !important;
+  border-right: none !important;
+}
+
+.heroGrid::before,
+.heroGrid::after,
+.identityPanel::before,
+.identityPanel::after,
+.asciiPanel::before,
+.asciiPanel::after {
+  display: none !important;
+}
+/* ==========================================
+   DESKTOP — COMPACT SINGLE-SCREEN HERO
+   ========================================== */
+
+@media (min-width: 1024px) {
+  /* Fit the hero within the available screen height */
+  .heroGrid {
+    min-height: 0;
+    height: clamp(560px, calc(100dvh - 130px), 850px);
+  }
+
+  /* Keep the ASCII slightly below the top */
+  .asciiStage {
+    margin-top: 25px;
+    min-height: 0;
+  }
+
+  /* Fill the available ASCII area */
+  .asciiFrame {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+  }
+
+  /* Reduce excessive spacing between logo and description */
+  .identityContent {
+    gap: clamp(30px, 3vw, 55px);
+    padding-block: clamp(25px, 3vw, 50px);
+  }
+}
+
+/* Compact back navigation */
+@media (min-width: 1024px) {
+  .topBar {
+    min-height: 52px;
+    padding-block: 4px;
+  }
+}
+
+/* Let the custom cursor move freely over ASCII artwork */
+.asciiFrame {
+  pointer-events: none;
+}
+
+/* ==========================================
+   TIVASA — SUBTLE ANALOG CRT WAVE
+   ========================================== */
+
+.tivasaTextWrap {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.tivasaCrtWave {
+  position: absolute;
+  inset: 0;
+  display: block;
+
+  font-family: var(--font-clash-grotesk), Arial, sans-serif;
+  font-size: inherit;
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 1;
+  white-space: nowrap;
+
+  color: inherit;
+  pointer-events: none;
+
+  /* Only reveal a narrow horizontal band */
+  clip-path: inset(0 0 94% 0);
+
+  animation: tivasaAnalogWave 3.5s linear infinite;
+}
+
+/* Match the original wordmark typography exactly */
+.tivasaTextWrap .tivasaCrtWave {
+  font-size: clamp(3.5rem, 8vw, 9rem);
+}
+
+@media (max-width: 1100px) {
+  .tivasaTextWrap .tivasaCrtWave {
+    font-size: clamp(3rem, 7vw, 6rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .tivasaTextWrap .tivasaCrtWave {
+    font-size: clamp(3.5rem, 13vw, 7rem);
+  }
+}
+
+@media (max-width: 390px) {
+  .tivasaTextWrap .tivasaCrtWave {
+    font-size: 12vw;
+  }
+}
+
+@keyframes tivasaAnalogWave {
+  0% {
+    clip-path: inset(0 0 89% 0);
+    transform: translateX(0);
+  }
+
+  25% {
+    clip-path: inset(22% 0 67% 0);
+    transform: translateX(4px);
+  }
+
+  50% {
+    clip-path: inset(44% 0 45% 0);
+    transform: translateX(-4px);
+  }
+
+  75% {
+    clip-path: inset(66% 0 23% 0);
+    transform: translateX(4px);
+  }
+
+  100% {
+    clip-path: inset(89% 0 0 0);
+    transform: translateX(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tivasaCrtWave {
+    animation: none;
+    display: none;
+  }
+}
+
+/* ==========================================
+   TIVASA — PERMANENT UNDERLINE
+   ========================================== */
+
+/* Always show the underline */
+.tivasaUnderline {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Disable any hover animation on the underline */
+.tivasaIdentity:hover .tivasaUnderline,
+.tivasaWordmark:hover + .tivasaUnderline {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* TIVASA — ALWAYS VISIBLE UNDERLINE */
+
+.tivasaUnderline,
+.tivasaIdentity:hover .tivasaUnderline {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: scaleX(1) !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+/* ==========================================
+   ALI HATEF — ANALOG CRT DISTORTION
+   ========================================== */
+
+.aliCrtWave {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+
+  display: block;
+  margin: 0;
+
+  font-family: var(--font-lahzeh), Arial, sans-serif;
+  font-size: clamp(4.2rem, 8.4vw, 10rem);
+  font-weight: 900;
+  line-height: 0.72;
+  letter-spacing: -0.09em;
+  white-space: nowrap;
+
+  color: #ffffff;
+  pointer-events: none;
+
+  clip-path: inset(0 0 89% 0);
+
+  animation: aliAnalogWave 3.5s linear infinite;
+}
+
+/* Match the original responsive logo sizes */
+
+@media (max-width: 1100px) {
+  .aliCrtWave {
+    font-size: clamp(3.5rem, 8vw, 7rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .aliCrtWave {
+    font-size: clamp(4rem, 15vw, 8rem);
+  }
+}
+
+@media (max-width: 390px) {
+  .aliCrtWave {
+    font-size: 14vw;
+  }
+}
+
+/* Same wave intensity and speed as TIVASA */
+
+@keyframes aliAnalogWave {
+  0% {
+    clip-path: inset(0 0 89% 0);
+    transform: translateX(0);
+  }
+
+  25% {
+    clip-path: inset(22% 0 67% 0);
+    transform: translateX(4px);
+  }
+
+  50% {
+    clip-path: inset(44% 0 45% 0);
+    transform: translateX(-4px);
+  }
+
+  75% {
+    clip-path: inset(66% 0 23% 0);
+    transform: translateX(4px);
+  }
+
+  100% {
+    clip-path: inset(89% 0 0 0);
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aliCrtWave {
+    display: none;
+    animation: none;
+  }
+}
+
+/* =========================================
+   PROJECT INTRODUCTION
+========================================= */
+
+.projectIntroTitle {
+  margin: 0;
+  max-width: 580px;
+
+  font-family: var(--font-alte-haas), Arial, sans-serif;
+  font-size: clamp(20px, 2vw, 30px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+
+  color: var(--project-white);
+}
+
+.projectIntroBody {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  max-width: 580px;
+}
+
+.projectIntroBody p {
+  margin: 0;
+
+  font-size: clamp(12px, 0.95vw, 14px);
+  line-height: 1.65;
+
+  color: var(--project-muted);
+}
+
+/* =========================================
+   VISIT WEBSITE LINK
+========================================= */
+
+.projectVisitLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+
+  width: fit-content;
+  margin-top: 6px;
+  padding: 12px 0;
+
+  border-bottom: 1px solid var(--project-red);
+
+  font-family: var(--font-eurostile), monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+
+  color: var(--project-white);
+
+  transition:
+    color 180ms ease,
+    gap 180ms ease;
+}
+
+.projectVisitLink:hover {
+  color: var(--project-red);
+  gap: 46px;
+}
+
+.projectVisitLink svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  .projectIntroTitle {
+    font-size: clamp(21px, 5vw, 28px);
+  }
+
+  .projectIntroBody p {
+    font-size: 13px;
+  }
+
+  .projectVisitLink {
+    margin-top: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projectVisitLink {
+    transition: none;
+  }
+}
+
+/* =========================================
+   PROJECT SWITCHER
+========================================= */
+
+.projectSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.projectSwitcherLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 36px;
+  padding: 0 15px;
+
+  border: 1px solid var(--project-border);
+  background: transparent;
+
+  color: var(--project-muted);
+
+  font-family: var(--font-eurostile), monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.projectSwitcherLink:hover {
+  color: var(--project-white);
+  border-color: var(--project-red);
+  background: rgba(215, 25, 32, 0.08);
+}
+
+.projectSwitcherLink--active {
+  color: var(--project-white);
+  border-color: var(--project-red);
+  box-shadow: inset 2px 0 0 var(--project-red);
+}
+
+.projectSwitcherLink--active:hover {
+  background: transparent;
+}
+
+/* =========================================
+   LARGER PROJECT DESCRIPTION
+========================================= */
+
+.projectIntroBody p {
+  font-size: clamp(15px, 1.12vw, 17px);
+  line-height: 1.65;
+}
+
+.projectIntroBody {
+  gap: 16px;
+}
+
+/* =========================================
+   MOBILE PROJECT LAYOUT
+========================================= */
+
+@media (max-width: 767px) {
+  /* Completely hide the ASCII panel */
+  .projectPage .asciiPanel {
+    display: none;
+  }
+
+  /* Single-column project hero */
+  .projectPage .heroGrid {
+    grid-template-columns: minmax(0, 1fr);
+    height: auto;
+    min-height: 0;
+  }
+
+  .projectPage .identityPanel {
+    border-right: 0;
+  }
+
+  .projectPage .identityContent {
+    min-height: 0;
+    padding: 55px 25px 65px;
+    gap: 55px;
+  }
+
+  /* Mobile text readability */
+  .projectPage .projectIntroBody p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .projectPage .projectIntroBody {
+    gap: 18px;
+  }
+
+  /* Compact top navigation */
+  .projectPage .topBar {
+    min-height: 70px;
+    padding: 12px 20px;
+    gap: 12px;
+  }
+
+  .projectPage .backLink {
+    gap: 8px;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  .projectSwitcher {
+    gap: 5px;
+  }
+
+  .projectSwitcherLink {
+    min-height: 34px;
+    padding: 0 9px;
+    font-size: 9px;
+    gap: 5px;
+  }
+
+  .projectSwitcherLink svg {
+    display: none;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 390px) {
+  .projectPage .topBar {
+    padding-inline: 12px;
+    gap: 8px;
+  }
+
+  .projectPage .backLink {
+    font-size: 9px;
+  }
+
+  .projectSwitcherLink {
+    padding-inline: 6px;
+    font-size: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projectSwitcherLink {
+    transition: none;
+  }
+}
+
+/* PROJECT NAVIGATION — FRAMED ARROWS */
+
+.projectArrowButton {
+  position: relative;
+
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid #55595d;
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--project-white);
+
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+/* Small technical corner accents */
+.projectArrowButton::before,
+.projectArrowButton::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  pointer-events: none;
+}
+
+.projectArrowButton::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--project-red);
+  border-left: 2px solid var(--project-red);
+}
+
+.projectArrowButton::after {
+  right: -1px;
+  bottom: -1px;
+  border-right: 2px solid var(--project-red);
+  border-bottom: 2px solid var(--project-red);
+}
+
+.projectArrowButton:hover {
+  border-color: var(--project-red);
+  background: rgba(215, 25, 32, 0.12);
+  color: var(--project-red);
+}
+
+@media (max-width: 767px) {
+  .projectArrowButton {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* FIX — PERFECTLY CENTER ARROW ICONS */
+
+.projectArrowButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 0;
+  box-sizing: border-box;
+}
+
+.projectArrowButton svg {
+  display: block;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+/* ALI HATEF — ASCII ART SPACING FIX */
+
+@media (min-width: 1024px) {
+  .projectPage .asciiPanel {
+    padding-top: 15px;
+    padding-bottom: 25px;
+  }
+
+  .projectPage .asciiStage {
+    margin-top: 0;
+    min-height: 0;
+  }
+}
+
+/* FIX — PROJECT HERO BOTTOM BORDER */
+
+@media (min-width: 1024px) {
+  .projectPage .heroGrid {
+    height: auto;
+    min-height: clamp(560px, calc(100dvh - 130px), 850px);
+    padding-bottom: 20px;
+  }
+}
+
+/* Space between project description and action button */
+.projectActionWrapper {
+  margin-top: 28px;
+}
