@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import localFont from "next/font/local";
+
 import CRTDisplay from "../components/crt/CRTDisplay";
 import CustomCursor from "../components/ui/CustomCursor";
 import StructuredData from "../components/seo/StructuredData";
+
 import "./globals.css";
 
 const SITE_URL = "https://kamyarmoniri.com";
@@ -49,6 +52,7 @@ const lahzeh = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+
   alternates: {
     canonical: "/",
   },
@@ -118,8 +122,15 @@ export default function RootLayout({
       className={`${alteHaas.variable} ${eurostile.variable} ${clashGrotesk.variable} ${lahzeh.variable}`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground font-sans">
+        {/* SEO structured data */}
         <StructuredData />
-        <CRTDisplay>{children}</CRTDisplay>
+
+        {/* CRT display with WebGL test support */}
+        <Suspense fallback={null}>
+          <CRTDisplay>{children}</CRTDisplay>
+        </Suspense>
+
+        {/* Custom crosshair cursor */}
         <CustomCursor />
       </body>
     </html>

@@ -41,7 +41,7 @@ const CELL_WIDTH = 4.8;
 const CELL_HEIGHT = 8;
 const FONT_SIZE = 8;
 
-const RED = "#d71920";
+const RED = "#a52b30";
 const GLITCH_CHARS = "@#%&*+=-:.";
 const FRAGMENT_CHARS = "+-=:/\\[]<>01#";
 
@@ -52,11 +52,11 @@ const BACKGROUND_FPS = 30;
 const SIGNAL_STEP_MS = 320;
 
 const PORTRAIT_FILTER = [
-  "saturate(0.75)",
-  "brightness(1.2)",
+  "saturate(0.6)",
+  "brightness(1.06)",
   "contrast(1.08)",
-  "drop-shadow(0 0 3px rgba(245,245,245,0.42))",
-  "drop-shadow(0 0 9px rgba(235,235,235,0.16))",
+  "drop-shadow(0 0 2px rgba(200,210,208,0.22))",
+  "drop-shadow(0 0 7px rgba(180,195,192,0.08))",
 ].join(" ");
 
 const SHIRT_POLYGON = `polygon(
@@ -88,18 +88,18 @@ function randomChar(seed: number, frame: number) {
 
 function fallbackColor(char: string) {
   const shades: Record<string, string> = {
-    "@": "#eeeeec",
-    "#": "#dededb",
-    "%": "#c9c9c6",
-    "*": "#b5b5b2",
-    "+": "#999b9b",
-    "=": "#7d8080",
-    "-": "#626666",
-    ":": "#454949",
-    ".": "#303434",
+    "@": "#c7cac7",
+    "#": "#b9bdbb",
+    "%": "#afb4b2",
+    "*": "#9ba19f",
+    "+": "#858b8a",
+    "=": "#737a79",
+    "-": "#5d6464",
+    ":": "#454c4c",
+    ".": "#303737",
   };
 
-  return shades[char] ?? "#999999";
+  return shades[char] ?? "#858b8a";
 }
 
 export default function AsciiPortrait() {
@@ -341,7 +341,7 @@ export default function AsciiPortrait() {
           return;
         }
 
-        noiseCtx.fillStyle = `rgba(215,25,32,${alpha})`;
+        noiseCtx.fillStyle = `rgba(165,43,48,${alpha})`;
         noiseCtx.fillText(char, x, y);
       };
 
@@ -505,7 +505,7 @@ export default function AsciiPortrait() {
 
           if (corrupt) {
             output = randomChar(index, frame);
-            outputColor = index % 5 === 0 ? RED : "#dededb";
+            outputColor = index % 5 === 0 ? RED : "#b9bdbb";
           }
         }
 
@@ -516,7 +516,7 @@ export default function AsciiPortrait() {
 
           if (corruption) {
             output = randomChar(index, frame);
-            outputColor = "#c8c8c8";
+            outputColor = "#afb4b2";
           }
         }
 
@@ -547,7 +547,7 @@ export default function AsciiPortrait() {
             if (corrupt) {
               output = randomChar(index + config.seed, frame);
 
-              outputColor = hash(index + frame) > 0.78 ? RED : "#b7b7b7";
+              outputColor = hash(index + frame) > 0.78 ? RED : "#9ba19f";
             }
 
             if (hash(index * 0.39 + config.seed) > 0.72) {
@@ -576,7 +576,7 @@ export default function AsciiPortrait() {
             if (corrupt) {
               output = hash(index * 1.17 + frame) > 0.5 ? "1" : "0";
 
-              outputColor = hash(index + config.seed) > 0.87 ? RED : "#c5c5c2";
+              outputColor = hash(index + config.seed) > 0.87 ? RED : "#afb4b2";
             }
           }
         }
@@ -595,7 +595,7 @@ export default function AsciiPortrait() {
 
             const shift = config.direction * (3 + envelope * 7);
 
-            animatedCtx.fillStyle = `rgba(215,25,32,${0.22 + envelope * 0.38})`;
+            animatedCtx.fillStyle = `rgba(165,43,48,${0.22 + envelope * 0.38})`;
 
             animatedCtx.fillText(char, x + shift, y);
 
@@ -619,7 +619,7 @@ export default function AsciiPortrait() {
           if (corrupt) {
             output = randomChar(index + config.seed, frame);
 
-            outputColor = hash(index * 0.31 + stage) > 0.83 ? RED : "#a8a8a8";
+            outputColor = hash(index * 0.31 + stage) > 0.83 ? RED : "#858b8a";
           }
 
           if (progress < 0.6 && hash(row * 1.91 + stage + config.seed) > 0.92) {
@@ -810,6 +810,29 @@ export default function AsciiPortrait() {
         prepareCanvases(width, height);
 
         const colorMap = new Map<string, string>();
+        const remapPortraitColor = (original: string): string => {
+          const hex = original.trim().replace("#", "");
+
+          if (!/^[0-9a-f]{6}$/i.test(hex)) {
+            return original;
+          }
+
+          const r = parseInt(hex.slice(0, 2), 16);
+          const g = parseInt(hex.slice(2, 4), 16);
+          const b = parseInt(hex.slice(4, 6), 16);
+
+          const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+
+          const level = Math.max(0, Math.min(1, luminance / 255));
+
+          // Keep dark characters dark, gently compress highlights.
+          const intensity = Math.round(34 + level * 165);
+
+          const toHex = (value: number) =>
+            Math.max(0, Math.min(255, value)).toString(16).padStart(2, "0");
+
+          return `#${toHex(intensity)}${toHex(intensity + 3)}${toHex(intensity + 2)}`;
+        };
 
         if (svgResponse.ok) {
           const svgText = await svgResponse.text();
@@ -839,7 +862,11 @@ export default function AsciiPortrait() {
 
               const row = Math.round(y / CELL_HEIGHT - 0.8);
 
-              colorMap.set(`${row}:${column}`, fill);
+              const mappedColor = remapPortraitColor(fill);
+
+              colorMap.set(`${row}:${column}`, mappedColor);
+
+              node.setAttribute("fill", mappedColor);
             });
 
             const backgroundRect = documentSVG.querySelector("rect");

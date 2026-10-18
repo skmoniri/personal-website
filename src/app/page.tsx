@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Hero from "../components/sections/Hero";
 import Work from "../components/sections/Work";
 import About from "../components/sections/About";
+import Services from "../components/sections/Services";
 
 const SITE_URL = "https://kamyarmoniri.com";
 
@@ -86,6 +87,7 @@ export default function Home() {
       <main className="lab-container">
         <Hero />
         <About />
+        <Services />
         <Work />
       </main>
     </>

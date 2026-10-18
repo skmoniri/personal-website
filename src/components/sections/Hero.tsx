@@ -77,11 +77,11 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ASCII portrait artifact */}
+        {/* ASCII portrait display */}
         <div
           className={`flex min-w-0 flex-col border-t-[2.5px] lg:border-t-0 lg:border-l-[2.5px] ${divider}`}
         >
-          {/* Artifact header */}
+          {/* Display header */}
           <div
             className={`flex items-center justify-between gap-3 border-b-[2.5px] px-4 py-3 sm:px-6 ${divider}`}
           >
@@ -105,24 +105,28 @@ export default function Hero() {
           >
             {/* Portrait fills the available stage without resizing it */}
             <div className="absolute inset-0 z-10 overflow-hidden">
-              {" "}
               <AsciiPortrait />
             </div>
 
-            <span
+            {/* Old terminal readout — top left */}
+            <div
               aria-hidden="true"
-              className="pointer-events-none absolute top-5 left-5 z-20 font-mono text-lg text-accent"
+              className="pointer-events-none absolute top-4 left-4 z-20 font-technical text-[8px] leading-[1.55] tracking-[0.04em] sm:top-5 sm:left-5 sm:text-[10px]"
             >
-              +
-            </span>
+              <div className="text-accent">&gt; ./render --ascii</div>
+              <div className="text-[#a5a8a9]">[SYS] INITIALIZED</div>
 
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute right-5 bottom-5 z-20 font-mono text-lg text-accent"
-            >
-              +
-            </span>
+              <div className="text-[#a5a8a9]">[IMG] PORTRAIT_001.ASC</div>
 
+              <div className="text-[#a5a8a9]">[OUT] MONOCHROME</div>
+              <div className="mt-1 flex items-center gap-1 text-accent">
+                <span>&gt;</span>
+
+                <span className="inline-block h-[9px] w-[5px] bg-accent motion-safe:animate-[terminalBlink_1s_steps(1,end)_infinite] sm:h-[11px] sm:w-[6px]" />
+              </div>
+            </div>
+
+            {/* Crosshair — top right */}
             <Crosshair
               size={19}
               strokeWidth={1.5}
@@ -130,21 +134,29 @@ export default function Hero() {
               className="pointer-events-none absolute top-5 right-5 z-20 text-accent"
             />
 
-            {/* Index */}
+            {/* Figure index — bottom left */}
             <span
               className={`${technical} pointer-events-none absolute bottom-5 left-5 z-20`}
             >
               FIG.001
             </span>
+
+            {/* Corner marker — bottom right */}
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute right-5 bottom-5 z-20 font-mono text-lg text-accent"
+            >
+              +
+            </span>
           </div>
 
-          {/* Artifact footer */}
+          {/* Display footer */}
           <div
             className={`flex items-center justify-between gap-3 border-t-[2.5px] px-4 py-3 sm:px-6 ${divider}`}
           >
             <span className={technical}>PERSONAL IDENTITY ARTIFACT</span>
 
-            <span className={`${technical} text-accent`}>KM / 26</span>
+            <span className={`${technical} text-accent`}>TTY.01</span>
           </div>
         </div>
       </div>
@@ -163,9 +175,23 @@ export default function Hero() {
           <ArrowDownRight
             size={16}
             className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:translate-y-0.5 motion-reduce:transition-none"
+            aria-hidden="true"
           />
         </a>
       </div>
+
+      {/* Hard-blinking terminal cursor */}
+      <style>{`
+        @keyframes terminalBlink {
+          0%, 49.99% {
+            opacity: 1;
+          }
+
+          50%, 100% {
+            opacity: 0;
+          }
+        }
+      `}</style>
     </section>
   );
 }

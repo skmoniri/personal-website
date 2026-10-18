@@ -13,11 +13,11 @@ const AsciiPortraitDesktop = dynamic(() => import("./AsciiPortraitDesktop"), {
 const DESKTOP_QUERY = "(min-width: 768px)";
 
 const PORTRAIT_FILTER = [
-  "saturate(0.75)",
-  "brightness(1.2)",
-  "contrast(1.08)",
-  "drop-shadow(0 0 3px rgba(245,245,245,0.42))",
-  "drop-shadow(0 0 9px rgba(235,235,235,0.16))",
+  "saturate(0.65)",
+  "brightness(1.08)",
+  "contrast(1.06)",
+  "drop-shadow(0 0 3px rgba(220,220,220,0.30))",
+  "drop-shadow(0 0 8px rgba(210,210,210,0.10))",
 ].join(" ");
 
 const SHIRT_POLYGON = `polygon(
