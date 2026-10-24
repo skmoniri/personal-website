@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 
 import Hero from "../components/sections/Hero";
@@ -6,6 +7,7 @@ import About from "../components/sections/About";
 import Services from "../components/sections/Services";
 
 const SITE_URL = "https://kamyarmoniri.com";
+const RESUME_URL = `${SITE_URL}/Seyed_Kamyar_Moniri_Updated_Resume.pdf`;
 
 export const metadata: Metadata = {
   title: {
@@ -46,6 +48,14 @@ const structuredData = {
         "Web Development",
         "Interactive Web Design",
       ],
+      subjectOf: {
+        "@type": "DigitalDocument",
+        "@id": `${RESUME_URL}#document`,
+        name: "Kamyar Moniri — Resume",
+        url: RESUME_URL,
+        encodingFormat: "application/pdf",
+        inLanguage: "en",
+      },
     },
     {
       "@type": "WebSite",
@@ -84,6 +94,7 @@ export default function Home() {
           __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
+
       <main className="lab-container">
         <Hero />
         <About />

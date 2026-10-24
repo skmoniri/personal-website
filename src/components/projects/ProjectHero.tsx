@@ -237,6 +237,14 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
                       and confidence.
                     </p>
                   </div>
+                  <div className="projectActionWrapper">
+                  <ActionButton
+                    mode="border"
+                    label="VISIT WEBSITE"
+                    href="https://tivasaco.com"
+                    external
+                  />
+                </div>
                 </>
               ) : null}
             </div>

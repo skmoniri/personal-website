@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -34,10 +35,8 @@ export default function MainNav() {
         return;
       }
 
-      // Keep the header visible while the menu is open.
-      if (menuOpen) {
-        return;
-      }
+      // Keep the header visible at the top.
+      if (menuOpen) return;
 
       if (Math.abs(delta) < 0.5) return;
 
@@ -103,9 +102,11 @@ export default function MainNav() {
           <Link href="/#hero">HOME</Link>
           <Link href="/#work">WORK</Link>
           <Link href="/#about">ABOUT</Link>
+          <Link href="/#services">SERVICES</Link>
           <Link href="/#contact">CONTACT</Link>
         </nav>
 
+        {/* Original LET'S TALK button */}
         <Link className="lab-nav-contact" href="/#contact">
           LET&apos;S TALK <ArrowUpRight size={16} />
         </Link>

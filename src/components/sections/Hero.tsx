@@ -1,3 +1,4 @@
+
 import { ArrowDownRight, Crosshair } from "lucide-react";
 import ActionButton from "../ui/ActionButton";
 import AsciiPortrait from "../AsciiPortrait";
@@ -59,11 +60,19 @@ export default function Hero() {
             </p>
           </div>
 
+          {/* Hero action buttons */}
           <div className="mt-9 flex flex-col items-start gap-4 sm:mt-11">
             <ActionButton
               mode="border"
               label="EXPLORE SELECTED WORK"
               href="#work"
+            />
+
+            <ActionButton
+              mode="border"
+              label="DOWNLOAD RESUME"
+              href="/Seyed_Kamyar_Moniri_Updated_Resume.pdf"
+              download="Seyed_Kamyar_Moniri_Resume.pdf"
             />
 
             <span className={`${technical} pl-1`}>
@@ -116,9 +125,12 @@ export default function Hero() {
               <div className="text-accent">&gt; ./render --ascii</div>
               <div className="text-[#a5a8a9]">[SYS] INITIALIZED</div>
 
-              <div className="text-[#a5a8a9]">[IMG] PORTRAIT_001.ASC</div>
+              <div className="text-[#a5a8a9]">
+                [IMG] PORTRAIT_001.ASC
+              </div>
 
               <div className="text-[#a5a8a9]">[OUT] MONOCHROME</div>
+
               <div className="mt-1 flex items-center gap-1 text-accent">
                 <span>&gt;</span>
 
@@ -154,9 +166,13 @@ export default function Hero() {
           <div
             className={`flex items-center justify-between gap-3 border-t-[2.5px] px-4 py-3 sm:px-6 ${divider}`}
           >
-            <span className={technical}>PERSONAL IDENTITY ARTIFACT</span>
+            <span className={technical}>
+              PERSONAL IDENTITY ARTIFACT
+            </span>
 
-            <span className={`${technical} text-accent`}>TTY.01</span>
+            <span className={`${technical} text-accent`}>
+              TTY.01
+            </span>
           </div>
         </div>
       </div>
@@ -165,13 +181,16 @@ export default function Hero() {
       <div
         className={`flex flex-wrap items-center justify-between gap-3 border-t-[2.5px] px-4 py-3 sm:px-6 lg:px-10 ${divider}`}
       >
-        <span className={technical}>DESIGN / DEVELOPMENT / INTERACTION</span>
+        <span className={technical}>
+          DESIGN / DEVELOPMENT / INTERACTION
+        </span>
 
         <a
           href="#work"
           className="group inline-flex min-h-10 items-center gap-2 font-technical text-[10px] tracking-[0.08em] transition-colors duration-200 hover:text-accent focus-visible:text-accent sm:text-xs"
         >
           SCROLL TO EXPLORE
+
           <ArrowDownRight
             size={16}
             className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:translate-y-0.5 motion-reduce:transition-none"

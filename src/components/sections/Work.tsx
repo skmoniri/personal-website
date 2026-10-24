@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -39,7 +40,10 @@ function getEncodedPositions(name: string): number[] {
     .map((character, index) => (character === " " ? -1 : index))
     .filter((index) => index !== -1);
 
-  const amount = Math.max(1, Math.round(validPositions.length * ENCODE_AMOUNT));
+  const amount = Math.max(
+    1,
+    Math.round(validPositions.length * ENCODE_AMOUNT)
+  );
 
   const shuffled = [...validPositions].sort(() => Math.random() - 0.5);
 
@@ -57,11 +61,12 @@ type AsciiTitleProps = {
 
 function AsciiTitle({ name, active }: AsciiTitleProps) {
   const [display, setDisplay] = useState(name);
-
   const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const mediaQuery = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
 
     const handleChange = () => {
       setReducedMotion(mediaQuery.matches);
@@ -73,7 +78,6 @@ function AsciiTitle({ name, active }: AsciiTitleProps) {
 
     return () => {
       window.clearTimeout(initialTimer);
-
       mediaQuery.removeEventListener("change", handleChange);
     };
   }, []);
@@ -84,7 +88,6 @@ function AsciiTitle({ name, active }: AsciiTitleProps) {
     }
 
     const letters = [...name];
-
     const encodedPositions = getEncodedPositions(name);
 
     let frame = 0;
@@ -92,7 +95,10 @@ function AsciiTitle({ name, active }: AsciiTitleProps) {
     const startFrames = new Map<number, number>();
 
     encodedPositions.forEach((index) => {
-      startFrames.set(index, 1 + Math.floor(Math.random() * 6));
+      startFrames.set(
+        index,
+        1 + Math.floor(Math.random() * 6)
+      );
     });
 
     const finalCharacters = new Map<number, string>();
@@ -136,7 +142,8 @@ function AsciiTitle({ name, active }: AsciiTitleProps) {
     };
   }, [active, name, reducedMotion]);
 
-  const visibleText = active && !reducedMotion ? display : name;
+  const visibleText =
+    active && !reducedMotion ? display : name;
 
   return (
     <span aria-label={name}>
@@ -177,7 +184,7 @@ function ProjectRow({ item }: ProjectRowProps) {
         bg-[#08090a]
         p-4
         text-[#e8e8e5]
-        transition-colors
+        transition-none
         hover:bg-accent
         hover:text-white
         focus-visible:bg-accent
@@ -289,7 +296,11 @@ function ProjectRow({ item }: ProjectRowProps) {
       </div>
 
       {/* Arrow */}
-      <ArrowUpRight size={23} aria-hidden="true" className="justify-self-end" />
+      <ArrowUpRight
+        size={23}
+        aria-hidden="true"
+        className="justify-self-end"
+      />
     </Link>
   );
 }
@@ -300,12 +311,15 @@ function ProjectRow({ item }: ProjectRowProps) {
 
 export default function Work() {
   const firstProject = work[0]?.id ?? "00";
-
   const lastProject = work[work.length - 1]?.id ?? "00";
 
   return (
     <section className="lab-section" id="work">
-      <SectionTitle number="03" title="SELECTED WORK" note="" />
+      <SectionTitle
+        number="03"
+        title="SELECTED WORK"
+        note=""
+      />
 
       <div
         className="

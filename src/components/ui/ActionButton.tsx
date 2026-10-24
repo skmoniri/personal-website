@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -11,6 +12,7 @@ type ActionButtonProps = {
   href?: string;
   external?: boolean;
   fullWidth?: boolean;
+  download?: string;
 };
 
 export default function ActionButton({
@@ -19,13 +21,13 @@ export default function ActionButton({
   href,
   external = false,
   fullWidth = false,
+  download,
 }: ActionButtonProps) {
   const [active, setActive] = useState(false);
   const [hit, setHit] = useState(false);
   const [glitchKey, setGlitchKey] = useState(0);
 
   const hitTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
-
   const activeRef = useRef(false);
 
   useEffect(() => {
@@ -119,11 +121,9 @@ export default function ActionButton({
           <span className="km-action__slice km-action__slice--top">
             {label}
           </span>
-
           <span className="km-action__slice km-action__slice--middle">
             {label}
           </span>
-
           <span className="km-action__slice km-action__slice--bottom">
             {label}
           </span>
@@ -147,6 +147,7 @@ export default function ActionButton({
         <a
           href={href}
           {...sharedProps}
+          download={download}
           target={external ? "_blank" : undefined}
           rel={external ? "noopener noreferrer" : undefined}
         >
