@@ -49,7 +49,9 @@ export default function Hero() {
 
             <span className="text-transparent [-webkit-text-stroke:1.5px_#d71920] sm:[-webkit-text-stroke:2px_#d71920]">
               DEVELOPER
-              <span className="text-accent [-webkit-text-stroke:0]">.</span>
+              <span className="text-accent [-webkit-text-stroke:0]">
+                .
+              </span>
             </span>
           </h1>
 
@@ -71,8 +73,8 @@ export default function Hero() {
             <ActionButton
               mode="border"
               label="DOWNLOAD RESUME"
-              href="/Seyed_Kamyar_Moniri_Updated_Resume.pdf"
-              download="Seyed_Kamyar_Moniri_Resume.pdf"
+              href="/kamyar%20moniri.pdf"
+              download="Kamyar_Moniri_Resume.pdf"
             />
 
             <span className={`${technical} pl-1`}>
@@ -82,7 +84,9 @@ export default function Hero() {
 
           <div className="mt-14 hidden items-center gap-3 lg:flex">
             <span className="h-px w-8 bg-[var(--lab-line)]" />
-            <span className={technical}>DESIGN / CODE / SYSTEMS</span>
+            <span className={technical}>
+              DESIGN / CODE / SYSTEMS
+            </span>
           </div>
         </div>
 
@@ -122,14 +126,20 @@ export default function Hero() {
               aria-hidden="true"
               className="pointer-events-none absolute top-4 left-4 z-20 font-technical text-[8px] leading-[1.55] tracking-[0.04em] sm:top-5 sm:left-5 sm:text-[10px]"
             >
-              <div className="text-accent">&gt; ./render --ascii</div>
-              <div className="text-[#a5a8a9]">[SYS] INITIALIZED</div>
+              <div className="text-accent">
+                &gt; ./render --ascii
+              </div>
+              <div className="text-[#a5a8a9]">
+                [SYS] INITIALIZED
+              </div>
 
               <div className="text-[#a5a8a9]">
                 [IMG] PORTRAIT_001.ASC
               </div>
 
-              <div className="text-[#a5a8a9]">[OUT] MONOCHROME</div>
+              <div className="text-[#a5a8a9]">
+                [OUT] MONOCHROME
+              </div>
 
               <div className="mt-1 flex items-center gap-1 text-accent">
                 <span>&gt;</span>

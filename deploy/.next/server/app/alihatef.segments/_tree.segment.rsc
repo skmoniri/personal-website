@@ -1,0 +1,11 @@
+:HL["/_next/static/chunks/04pun6rg84vsn.css","style"]
+:HL["/_next/static/media/AlteHaasGroteskBold-s.p.2vabt6c6llu8i.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/_next/static/media/AlteHaasGroteskRegular-s.p.06-zj5hurxf86.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/_next/static/media/ClashGrotesk_Variable-s.p.3zf00_d-5iyx1.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/Lahzeh_FamilyVF-s.p.3pu20kvygpzgc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/eurostile-s.p.31-jtlq_zr5-u.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/_next/static/chunks/2r4hc5e5t31na.css","style"]
+3:[["children",{"s":"__PAGE__","h":160}]]
+2:[["children",{"s":{"n":"slug","t":"d","k":"alihatef","s":[]},"h":65632,"c":"$Q3"}]]
+1:[["children",{"s":"(projects)","h":131168,"c":"$Q2"}]]
+0:{"b":"GncJdkvQ2ki47WuMaT5H1","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}
