@@ -39,3 +39,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Deployment artifacts
+/deploy/
+/deploy-*/
+/release-*/
+/backup-*/
+/previous-deploy/
+/new-deploy/
+
+# Next.js build output
+/.next/
+/out/
+
+# Dependencies
+/node_modules/
+
